@@ -31,3 +31,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 node_modules/
+src/js/popper.min.js
+src/css/bootstrap.css
+src/js/bootstrap.min.js
+src/js/jquery.min.js
