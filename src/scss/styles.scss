@@ -3,3 +3,17 @@ $bg-color: rgb(112, 179, 233);
 body {
     background-color: $bg-color;
 }
+
+.debug {
+    border: 1px solid rgb(86,61,124);
+}
+
+.dev {
+    background-color: red;
+}
+
+.calendartable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+}

@@ -1,4 +1,5 @@
 var gulp        = require('gulp');
+var php         = require('gulp-connect-php');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 
@@ -17,15 +18,22 @@ gulp.task('js', function() {
         .pipe(browserSync.stream());
 });
 
+gulp.task('php', ['sass'], function() {
+    php.server({ base: './', hostname: 'localhost', port: 8080, keepalive: true});
+});
+
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['php'], function() {
 
     browserSync.init({
-        server: "./src"  
+        proxy: 'localhost',
+        port: 8080,
+        open: true,
+        notify: false  
     });
 
     gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
-    gulp.watch("src/*.html").on('change', browserSync.reload);
+    gulp.watch('application/*/*.php').on('change', browserSync.reload);
 });
 
 gulp.task('default', ['js','serve']);
