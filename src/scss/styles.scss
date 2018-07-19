@@ -1,19 +1,48 @@
-$bg-color: rgb(112, 179, 233); 
+$bg-color: rgb(80, 80, 80); 
 
 body {
-    background-color: $bg-color;
+	background-color: $bg-color;
 }
 
 .debug {
-    border: 1px solid rgb(86,61,124);
+	border: 1px solid rgb(86,61,124);
 }
 
 .dev {
-    background-color: red;
+	background-color: red;
+}
+
+.main {
+	background-color: rgb(230, 230, 230);
+}
+
+.calendarheader {
+	border: 1px solid white;
 }
 
 .calendartable {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
+	width: 100%;
+	table-layout: fixed;
+	text-align: center;
+}
+
+.daysgrid {
+	max-height: 40vw;
+	overflow-y: scroll;
+	border-left: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.day {
+	display: flex;
+	text-align: center;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 4vw;
+	padding-top: 4vw;
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
+	max-height: 10vw;
+	cursor: pointer;
 }

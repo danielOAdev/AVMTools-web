@@ -14,7 +14,13 @@ class C_Inicio extends CI_Controller {
 			'dia' => date('j'),
 			'mes' => date('n'),
 			'ano' => date('Y'),
+			'esse'=> $this
 		);
 		$this->load->view('V_Inicio', $data);
+	}
+
+	public function SayHey()
+	{
+		return 'Hey';
 	}
 }
