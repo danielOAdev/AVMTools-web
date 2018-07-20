@@ -16,6 +16,16 @@ class C_Inicio extends CI_Controller {
 			'ano' => date('Y'),
 			'esse'=> $this
 		);
+		$now = date_create( date('Y-m-d') );
+		$begin = $now->modify( '-60 day' ); 
+		$end = $now->modify( '+90 day' ); 
+
+		$interval = new DateInterval('P1D');
+		$daterange = new DatePeriod($begin, $interval ,$end);
+		$days = array();
+		foreach($daterange as $date){
+			$days[] = $date->format("Ymd");
+		}
 		$this->load->view('V_Inicio', $data);
 	}
 
