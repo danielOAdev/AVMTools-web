@@ -46,9 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							if ($first)
 							{
 								$first = false;
-								for( $i=0; $i<$date->format("w");$i++)
+								if($date->format("w")>0)
 								{
-									echo '<div class="day col-xs">00/00</div>';
+									echo '<div class="cell vazio col-xs"></div>';
 								}
 							}
 							if(!$date->format("w"))
@@ -58,22 +58,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							if($date->format("j")==1)
 							{
 								if($date->format("w")!=0){
-									for( $i=0; $i<=6-$date->format("w");$i++)
-									{
-										echo '<div class="day col-xs">00/00</div>';
-									}
+									echo '<div class="cell vazio col-xs"></div>';
 								}
 								echo '<div class="w-100"></div>';
-								echo '<div class="day col-xs">'.$date->format("F").'</div>';
+								echo '<div class="cell month col-xs">'.$date->format("F").'</div>';
 								echo '<div class="w-100"></div>';
 								if($date->format("w")!=0){
-									for( $i=0; $i<$date->format("w");$i++)
-									{
-										echo '<div class="day col-xs">00/00</div>';
-									}
+									echo '<div class="cell vazio col-xs"></div>';
 								}
 							}
-							echo '<div class="day col-xs">'.$date->format("d/m").'</div>';
+							echo '<div class="cell col-xs">'.$date->format("d/m").'</div>';
 						}
 					?>
 				</div>
@@ -99,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="/src/js/bootstrap.min.js"></script>
 	</body>
 	<script>
-		var days = document.getElementsByClassName('day');
+		var days = document.getElementsByClassName('cell');
 		Array.from(days).forEach(function(day) {
 			day.addEventListener('click', function (event) {
 				alert(day.innerText);

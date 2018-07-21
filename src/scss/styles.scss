@@ -33,10 +33,10 @@ body {
 	border-bottom: 1px solid white;
 }
 
-.day {
+.cell {
 	display: flex;
 	text-align: center;
-	flex-grow: 1;
+	flex-grow: 0;
 	justify-content: center;
 	align-items: center;
 	padding-bottom: 4vw;
@@ -44,5 +44,20 @@ body {
 	border-right: 1px solid white;
 	border-bottom: 1px solid white;
 	max-height: 10vw;
+	width: percentage(1/7);
 	cursor: pointer;
+}
+
+.vazio {
+	flex-grow: 1;
+	width: auto;
+}
+
+.month {
+	flex-grow: 1;
+	width: auto;
+	background-color:white;
+	padding-bottom: 0.5vw;
+	padding-top: 0.5vw;
+	cursor: default;
 }
