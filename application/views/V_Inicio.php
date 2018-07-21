@@ -40,37 +40,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</table>
 				</div>
 				<div class="row daysgrid">
-					<div class="day col-xs">1</div>
-					<div class="day col-xs">2</div>
-					<div class="day col-xs">3</div>
-					<div class="day col-xs">4</div>
-					<div class="day col-xs">5</div>
-					<div class="day col-xs">6</div>
-					<div class="day col-xs">7</div>
-    				<div class="w-100"></div>
-					<div class="day col-xs">1</div>
-					<div class="day col-xs">2</div>
-					<div class="day col-xs">3</div>
-					<div class="day col-xs">4</div>
-					<div class="day col-xs">5</div>
-					<div class="day col-xs">6</div>
-					<div class="day col-xs">7</div>
-    				<div class="w-100"></div>
-					<div class="day col-xs">1</div>
-					<div class="day col-xs">2</div>
-					<div class="day col-xs">3</div>
-					<div class="day col-xs">4</div>
-					<div class="day col-xs">5</div>
-					<div class="day col-xs">6</div>
-					<div class="day col-xs">7</div>
-    				<div class="w-100"></div>
-					<div class="day col-xs">1</div>
-					<div class="day col-xs">2</div>
-					<div class="day col-xs">3</div>
-					<div class="day col-xs">4</div>
-					<div class="day col-xs">5</div>
-					<div class="day col-xs">6</div>
-					<div class="day col-xs">7</div>
+					<?php
+						$first = true;
+						foreach($daterange as $date){
+							if ($first)
+							{
+								$first = false;
+								for( $i=0; $i<$date->format("w");$i++)
+								{
+									echo '<div class="day col-xs">00/00</div>';
+								}
+							}
+							if(!$date->format("w"))
+							{
+								echo '<div class="w-100"></div>';
+							}
+							if($date->format("j")==1)
+							{
+								if($date->format("w")!=0){
+									for( $i=0; $i<=6-$date->format("w");$i++)
+									{
+										echo '<div class="day col-xs">00/00</div>';
+									}
+								}
+								echo '<div class="w-100"></div>';
+								echo '<div class="day col-xs">'.$date->format("F").'</div>';
+								echo '<div class="w-100"></div>';
+								if($date->format("w")!=0){
+									for( $i=0; $i<$date->format("w");$i++)
+									{
+										echo '<div class="day col-xs">00/00</div>';
+									}
+								}
+							}
+							echo '<div class="day col-xs">'.$date->format("d/m").'</div>';
+						}
+					?>
 				</div>
 
 				<svg width="500" height="500" class="chart">
