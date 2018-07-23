@@ -67,7 +67,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									echo '<div class="cell vazio col-xs"></div>';
 								}
 							}
-							echo '<div class="cell col-xs">'.$date->format("d/m").'</div>';
+							$data = $date->format("j/n");
+							$hoje = $dia.'/'.$mes;
+							if($data == $hoje)
+								$id = 'id = "hoje"';
+							else
+								$id = '';
+							echo '<div class="cell col-xs" '.$id.'>'.$date->format("d/m").'</div>';
 						}
 					?>
 				</div>
@@ -98,6 +104,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			day.addEventListener('click', function (event) {
 				alert(day.innerText);
 			});
+		});
+		
+		$(document).ready(function(){
+			var elmnt = document.getElementById("hoje");
+			elmnt.scrollIntoView();
 		});
 	</script>
 </html>
