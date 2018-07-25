@@ -18,6 +18,7 @@ body {
 
 .calendarheader {
 	border: 1px solid white;
+	flex-wrap: nowrap;
 }
 
 .calendartable {
@@ -60,4 +61,12 @@ body {
 	padding-bottom: 0.5vw;
 	padding-top: 0.5vw;
 	cursor: default;
+}
+
+.scrollspace {
+	overflow-y: scroll;
+	visibility: hidden;
+	-ms-flex: none;
+	flex: none;
+	
 }

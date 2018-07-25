@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tr>
 						</tbody>
 					</table>
+					<div class="scrollspace" ></div>
 				</div>
 				<div class="row daysgrid">
 					<?php
