@@ -89,6 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<?php 
 				echo $esse->SayHey();
+				echo $db_test;
 				echo $cale;
 				?>
 

@@ -23,7 +23,8 @@ class C_Inicio extends CI_Controller {
 			'mes' => date('n'),
 			'ano' => date('Y'),
 			'esse'=> $this,
-			'daterange' => $daterange
+			'daterange' => $daterange,
+			'db_test' => $this->db->get('new_table')->row_array()['idnew_table']
 		);
 		
 		$this->load->view('V_Inicio', $data);
