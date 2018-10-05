@@ -16,6 +16,13 @@ class C_Inicio extends CI_Controller {
 		$interval = new DateInterval('P1D');
 		$daterange = new DatePeriod($begin, $interval ,$end);
 		
+		
+		$disciplinas = $this->db->select('disciplina.nome, disciplina.qtd_aulas')
+		->from('disciplina')
+		->join('cursodisciplina', 'disciplina.id = cursodisciplina.id_disciplina')
+		->get()
+		->result_array();
+		
 		$data = array(
 			'cale' => $this->calendar->generate(),
 			'total_days' => days_in_month(date('n'),date('Y')),
@@ -24,7 +31,8 @@ class C_Inicio extends CI_Controller {
 			'ano' => date('Y'),
 			'esse'=> $this,
 			'daterange' => $daterange,
-			'db_test' => $this->db->get('new_table')->row_array()['idnew_table']
+			'db_test' => $this->db->get('curso')->row_array()['id'],
+			'disciplinas' => $disciplinas
 		);
 		
 		$this->load->view('V_Inicio', $data);

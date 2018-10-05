@@ -91,6 +91,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo $esse->SayHey();
 				echo $db_test;
 				echo $cale;
+				foreach($disciplinas as $disc){
+					echo $disc['nome'].' - '.$disc['qtd_aulas'];
+					echo '<br>';
+				}
 				?>
 
 			</div>
