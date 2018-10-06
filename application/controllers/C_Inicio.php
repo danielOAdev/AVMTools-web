@@ -31,12 +31,8 @@ class C_Inicio extends CI_Controller {
 			'ano' => date('Y'),
 			'esse'=> $this,
 			'daterange' => $daterange,
-<<<<<<< Updated upstream
 			'db_test' => $this->db->get('curso')->row_array()['id'],
 			'disciplinas' => $disciplinas
-=======
-			'db_test' => $this->db->get('cursos')->row_array()['nome']
->>>>>>> Stashed changes
 		);
 		
 		$this->load->view('V_Inicio', $data);
