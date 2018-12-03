@@ -138,6 +138,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					/* if (si == 0) return; */
 					b.addClass("grabCursor").css("userSelect", "none");
 					tr.addClass("grabbed");
+					$(document).mousemove(move).mouseup(up);
+					
 					function move (e) {
 						if (!drag && Math.abs(e.pageY - sy) < 10) return;
 						drag = true;
@@ -153,17 +155,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							s.insertAfter(tr);
 						else if (dir > 0 && (e.pageY>dist))
 							s.insertBefore(tr);
-						}
+					}
+					
 					function up (e) {
 						if (drag && si != tr.index()) {
 							drag = false;
 							//alert("moved!");
 						}
 						$(document).unbind("mousemove", move).unbind("mouseup", up);
-						b.removeClass("grabCursor").css("userSelect", "none");
+						b.removeClass("grabCursor").css("userSelect", "auto");
 						tr.removeClass("grabbed");
 					}
-					$(document).mousemove(move).mouseup(up);
 				};
 			</script>
 			</div>
